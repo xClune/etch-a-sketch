@@ -8,11 +8,11 @@ body {
 /* Header */
 header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin: 10px;
 }
 
-.size-btn {
+.btn {
     background-color: lightblue;
     padding: 5px;
     border: none;
@@ -21,7 +21,7 @@ header {
 
 /* Form grid */
 .grid-container {
-    margin: 30px;
+    margin: 0px 50px 10px 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -34,4 +34,11 @@ header {
 
 .selected {
     background-color: green;
+}
+
+/* UI */
+.ui {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
 }

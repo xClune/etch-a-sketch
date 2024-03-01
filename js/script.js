@@ -1,10 +1,15 @@
-// create 16x16 grid of divs
+// DOM Selectors
+
 const grid = document.querySelector('.grid-container');
+
+let currentGridSize;
+
+let gridButton = document.querySelector('.js-size-btn');
+let clearButton = document.querySelector('.js-clear-btn');
 
 createGrid();
 
-// grid size button
-let gridButton = document.querySelector('.size-btn');
+// button eventListeners
 gridButton.addEventListener('click', () => {
     let size = prompt("Enter desired grid size", "Size (e.g. '16')");
     size;
@@ -12,6 +17,11 @@ gridButton.addEventListener('click', () => {
     createGrid(size);
 })
 
+clearButton.addEventListener('click', () => {
+    clearGrid(currentGridSize);
+})
+
+// generate grid of custom length
 function createGrid(size = 16) {
     for (let i = 0; i < (size); i++){
         const row = document.createElement('div');
@@ -37,5 +47,17 @@ function createGrid(size = 16) {
         })
         row.appendChild(cell);
         }   
+    }
+    currentGridSize = size;
+}
+
+// clear grid by looping through cells, removing selected class
+function clearGrid(size){
+    for (let i = 0; i < (size); i++){
+        for (let j = 0; j < size; j++) {
+            if (document.querySelector(`.cell-${(i+1)}-${(j+1)}`).classList.contains('selected')) {
+                document.querySelector(`.cell-${(i+1)}-${(j+1)}`).classList.remove('selected');
+            }
+        }
     }
 }
